@@ -56,6 +56,7 @@ body {
     .btn {
         font-size: 21px;
         padding: 14px 24px;
+        cursor: pointer;
     }
 }
 
@@ -70,7 +71,7 @@ body {
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
     .container {
-        max-width: 730px;
+        max-width: 740px;
     }
 
     /* Remove the padding we set earlier */
@@ -89,5 +90,60 @@ body {
     /* Remove the bottom border on the jumbotron for visual effect */
     .jumbotron {
         border-bottom: 0;
+        padding: 0;
     }
 }
+
+body {
+    background: #e3e3e3;
+}
+
+.jumbotron {
+    text-align: left;
+    min-height: 250px;
+    margin-bottom: 0;
+
+}
+
+.taskList {
+    float: left;
+    margin: 0, 0, 0, 5px;
+    list-style-type: none;
+}
+
+
+
+#centerNav {
+    text-align: center;
+}
+
+.todoTitle {
+    text-align: center;
+}
+
+#navRow {
+    margin-left: 0.5%;
+    background: #c1c1c1;
+    max-width: 700px;
+    padding: 0 ;
+}
+
+#postNav {
+    position: relative;
+    margin-left: 23%;
+}
+
+#clear {
+    float: right;
+}
+
+
+.footer {
+    text-align: center;
+}
+
+.glyphicon {
+    cursor: pointer;
+}
+
+

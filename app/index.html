@@ -17,6 +17,14 @@
         <!-- build:js scripts/vendor/modernizr.js -->
         <script src="../bower_components/modernizr/modernizr.js"></script>
         <!-- endbuild -->
+        <script type="template/html" id="tasksTmpl">
+        <% _.each(tasks, function(tasks, index , list) { %>
+
+            <ul>
+                <h2 class="tasksTitle"><span class="glyphicon glyphicon-ok removeTask"></span><%= tasks.title %></h2>                
+            </ul>
+        <% }); %>
+        </script>
 
     </head>
     <body>
@@ -26,41 +34,58 @@
 
 
         <div class="container">
-            <div class="header">
-                <ul class="nav nav-pills pull-right">
-                    <li class="active"><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-                <h3 class="text-muted">toDo</h3>
-            </div>
+           
+
+            <h1 class="todoTitle">todos</h1>
 
             <div class="jumbotron">
-                <h1>'Allo, 'Allo!</h1>
-                <p class="lead">Always a pleasure scaffolding your apps.</p>
-                <p><a class="btn btn-lg btn-success" href="#">Splendid! <span class="glyphicon glyphicon-ok"></span></a></p>
+                <li class="taskList">
+                    <!--todo tasks go here-->
+                </li>
+            </div>
+            
+            <div class="row" id="navRow">
+
+                <div class="btn-group itemsLeft">
+                  <button type="button" class="btn">Items Left</button>
+                </div>
+                <div class="btn-group" id="postNav">
+                  <button type="button" class="btn">All</button>
+                  <button type="button" class="btn">Active</button>
+                  <button type="button" class="btn">Complete</button>
+                </div>
+                <div class="btn-group" id="clear">
+                  <button type="button" class="btn">Clear Completed</button>
+                </div>
+
+
             </div>
 
-            <div class="row marketing">
-                <div class="col-lg-6">
-                    <h4>HTML5 Boilerplate</h4>
-                    <p>HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.</p>
-
-                    <h4>Sass</h4>
-                    <p>Sass is a mature, stable, and powerful professional grade CSS extension language.</p>
 
 
-                    <h4>Bootstrap</h4>
-                    <p>Sleek, intuitive, and powerful mobile first front-end framework for faster and easier web development.</p>
+            
 
-                    <h4>Modernizr</h4>
-                    <p>Modernizr is an open-source JavaScript library that helps you build the next generation of HTML5 and CSS3-powered websites.</p>
+            <!--modal-->
 
+            <button class="btn btn-danger" data-toggle="modal" data-target=".bs-example-modal-sm">Add Task</button>
+
+            <div class="modal fade bs-example-modal-sm" id="myModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-sm">
+                <form id="newTaskForm" action="">
+                <div class="modal-content">
+                
+                    <div class="form-group">
+                        <label for="newTaskItem">New Task</label>
+                        <input type="text" class="form-control newTaskItem" id="newTaskItem" placeholder="Title">
+                    </div>
+                
                 </div>
+                </form>
+              </div>
             </div>
 
             <div class="footer">
-                <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
+                <p><span class=""></span>Double-click to edit todo</p>
             </div>
 
         </div>
@@ -99,6 +124,7 @@
         <!-- endbuild -->
 
         <!-- build:js({app,.tmp}) scripts/main.js -->
+        <script src="scripts/data.js"></script>
         <script src="scripts/main.js"></script>
         <!-- endbuild -->
 </body>
