@@ -100,17 +100,21 @@ body {
 
 .jumbotron {
     text-align: left;
-    min-height: 250px;
+    min-height: 350px;
     margin-bottom: 0;
 
 }
 
-.taskList {
+.taskList  {
+    margin-top: 10px;
     float: left;
-    margin: 0, 0, 0, 5px;
     list-style-type: none;
 }
 
+li {
+    font-size: 30px;
+    list-style-type: none;
+}
 
 
 #centerNav {
@@ -144,6 +148,10 @@ body {
 
 .glyphicon {
     cursor: pointer;
+}
+
+#addBtn {
+    float: right;
 }
 
 

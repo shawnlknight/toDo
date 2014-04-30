@@ -1,9 +1,9 @@
 $(document).ready(function() {
 	// DOM Items Here
 
-	var myTasks = _.template($("#tasksTmpl").html(), tasks);
+	// var myTasks = _.template($("#tasksTmpl").html(), tasks);
 
-	$(".taskList").append(myTasks);
+	// $(".taskList").append(myTasks);
 
 
 	$(".taskList").on("click", ".removeTask", function() {
@@ -11,7 +11,7 @@ $(document).ready(function() {
 	});
 
 
-	$(".container").on("click", "button", function() {
+	$(".jumbotron").on("click", "button", function() {
 
 		$('#myModal').modal();
 
@@ -28,6 +28,8 @@ $(document).ready(function() {
 
 		tasks.unshift(newTaskObj);
 		var myTasks = _.template($("#tasksTmpl").html(), tasks);
+			$(".taskList").html(myTasks);
+
 
 		$(".newTaskItem").val("");
 	});
