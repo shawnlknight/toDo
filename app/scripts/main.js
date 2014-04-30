@@ -11,7 +11,7 @@ $(document).ready(function() {
 	});
 
 
-	$(".jumbotron").on("click", "button", function() {
+	$(".container").on("click", "button", function() {
 
 		$('#myModal').modal();
 
