@@ -20,9 +20,7 @@
         <script type="template/html" id="tasksTmpl">
         <% _.each(tasks, function(tasks, index , list) { %>
 
-            <ul>
-                <li class="tasksTitle"><span class="glyphicon glyphicon-ok removeTask"></span><%= tasks.title %></li>                
-            </ul>
+            <li class="tasksTitle" data-index="<%= index %>"><span class="glyphicon glyphicon-ok toggleTask"></span><%= tasks.title %></li>
         <% }); %>
         </script>
 
@@ -34,22 +32,28 @@
 
 
         <div class="container">
-           
 
             <h1 class="todoTitle">todos</h1>
 
             <div class="jumbotron">
-                <button class="btn btn-danger" id="addBtn" data-toggle="modal">Add Task</button>
-                <li class="taskList">
-                    
+
+                <!--form for new todo -->
+                <form class="navbar-form navbar-left" id="newTaskForm" role="">
+                  <div class="form-group">
+                    <input type="text" class="form-control newTaskItem" id="newTaskItem" placeholder="What needs to be done?">
+                  </div>
+                
+
+                <ul class="taskList">   
                     <!--todo tasks go here-->
-                </li>
+                </ul>
+                </form>
             </div>
             
             <div class="row" id="navRow">
 
                 <div class="btn-group itemsLeft">
-                  <button type="button" class="btn">Items Left</button>
+                  <button type="button" class="btn"><p class="itemsLeft"></p></button>
                 </div>
                 <div class="btn-group" id="postNav">
                   <button type="button" class="btn">All</button>
@@ -63,33 +67,6 @@
 
             </div>
 
-
-
-            
-
-            <!--modal-->
-
-            
-
-            <div class="modal fade bs-example-modal-sm" id="myModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-              <div class="modal-dialog modal-sm">
-                
-                <div class="modal-content">
-                <form id="newTaskForm" action="">
-                <div class="modal-body">
-                    <div class="form-group">
-                        <input type="text" class="form-control newTaskItem" id="newTaskItem" placeholder="New Task">
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Save changes</button>
-                  </div>    
-                </form>
-                </div>
-                
-              </div>
-            </div>
 
             <div class="footer">
                 <p><span class=""></span>Double-click to edit todo</p>
