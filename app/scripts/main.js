@@ -42,6 +42,7 @@ $(".itemsLeft").html(tasks.length+" items left");
 	$(".taskList").on("click", ".toggleTask", function() {
 		console.log("working");
 		$(this).closest("li").toggleClass("lineThrough");
+		
 		var currentTasks = $(".taskList li").not(".lineThrough");
 		console.log(currentTasks);
 
@@ -52,7 +53,7 @@ $(".itemsLeft").html(tasks.length+" items left");
 
 	//Double-click to edit task
 	var originalTask;
-	$(".taskList").on('dblclick', 'li', function () {
+	$(".taskList").on('dblclick', 'li', function() {
 		var thisIndex = $(this).closest("li").data("index");
 		console.log(thisIndex);
 
@@ -65,7 +66,7 @@ $(".itemsLeft").html(tasks.length+" items left");
 	    // This keeps track of current tasks
 	    $(".itemsLeft").html(tasks.length+" items left");
 	});
-	$(".taskList").on('focusout', 'li > input', function () {
+	$(".taskList").on('focusout', 'li > input', function() {
 
 	    var $this = $(this);
 
@@ -79,6 +80,21 @@ $(".itemsLeft").html(tasks.length+" items left");
 			
         // This keeps track of current tasks
 		$(".itemsLeft").html(tasks.length+" items left");
+		
+	});
+
+
+	// Remove completed item
+	$("#clearComplete").on('click', function() {
+		console.log("clear button");
+
+		var removeIndex = $(this).closest("li").data("index");
+
+		// if(".taskList").hasClass(".toggleTask") {
+		// 	tasks.remove(thisIndex, 1);
+		// }
+
+
 	});
 
 
@@ -87,6 +103,13 @@ $(".itemsLeft").html(tasks.length+" items left");
 
 
 
+});
 
 
-  });
+
+
+
+
+
+
+
