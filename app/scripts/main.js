@@ -42,11 +42,11 @@ $(".itemsLeft").html(tasks.length+" items left");
 	$(".taskList").on("click", ".toggleTask", function() {
 		console.log("working");
 		$(this).closest("li").toggleClass("lineThrough");
-		
+
+		// This keeps track of current tasks w/ lineThrough class applied
 		var currentTasks = $(".taskList li").not(".lineThrough");
 		console.log(currentTasks);
 
-		// This keeps track of current tasks
 		$(".itemsLeft").html(currentTasks.length+" items left");
 	});
 
@@ -85,17 +85,12 @@ $(".itemsLeft").html(tasks.length+" items left");
 
 
 	// Remove completed item
-	$("#clearComplete").on('click', function() {
-		console.log("clear button");
-
-		var removeIndex = $(this).closest("li").data("index");
-
-		// if(".taskList").hasClass(".toggleTask") {
-		// 	tasks.remove(thisIndex, 1);
-		// }
-
-
+	$("#clearComplete").on("click", function() {
+		console.log("hey I'm working");
+		$(".lineThrough").closest("li").remove();
 	});
+
+
 
 
 
