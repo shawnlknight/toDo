@@ -54,7 +54,6 @@ body {
     text-align: center;
     border-bottom: 1px solid #e5e5e5;
     .btn {
-        font-size: 21px;
         padding: 14px 24px;
         cursor: pointer;
     }
@@ -101,9 +100,10 @@ body {
 .jumbotron {
     text-align: left;
     min-height: 350px;
-    margin-bottom: 0;
-    border-top: 20px solid #786a63;
-
+    margin-bottom: 1px;
+    padding-bottom: 1px;
+    border-top: 20px solid;
+    background: url(/images/paper3.jpg);
 }
 
 .taskList  {
@@ -111,13 +111,9 @@ body {
     padding-left: 0;
     float: left;
     list-style-type: none;
+    font-size: 24px;
+    cursor: pointer;
 }
-
-li {
-    font-size: 30px;
-    list-style-type: none;
-}
-
 
 #centerNav {
     text-align: center;
@@ -130,10 +126,12 @@ li {
 }
 
 #navRow {
+    border-radius: 10%;
+    position: relative;
     margin-left: 0.5%;
     background: #c1c1c1;
     max-width: 565px;
-    padding: 0 ;
+    clear: both;
         p {
             font-size: 14px;
             margin-bottom: 2px;
@@ -148,7 +146,6 @@ li {
 #clear {
     float: right;
 }
-
 
 .footer {
     text-align: center;
@@ -168,12 +165,14 @@ li {
 }
 
 #newTaskItem {
-    min-width: 200px;
+    min-width: 400px;
 }
 
 .tasksTitle {
-    border-bottom: 1px dashed #b3b3b3;
-
+    width: 400px;
+    border-bottom: 4px dashed #b3b3b3;
 }
+
+
 
 

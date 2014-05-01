@@ -1,14 +1,13 @@
 $(document).ready(function() {
 	// DOM Items Here
 
-	// var myTasks = _.template($("#tasksTmpl").html(), tasks);
-
-	// $(".taskList").append(myTasks);
 
 
 
-// This keeps track of current tasks
+// Keeps track of current tasks
 $(".itemsLeft").html(tasks.length+" items left");
+
+
 
 
 	$("#newTaskForm").on("submit", function(e) {
@@ -24,18 +23,14 @@ $(".itemsLeft").html(tasks.length+" items left");
 		var myTasks = _.template($("#tasksTmpl").html(), tasks);
 			$(".taskList").html(myTasks);
 
-
 		$(".newTaskItem").val("");
 
-		// This keeps track of current tasks
+		// Keeps track of current tasks
 		$(".itemsLeft").html(tasks.length+" items left");
 	});
 
 
-	// This removes task from list
-	// $(".taskList").on("click", ".toggleTask", function() {
-	// 	$(this).closest("li").remove();
-	// });
+
 
 
 	//Tooggle class lineThrough with this function. Event delegation.
@@ -43,12 +38,13 @@ $(".itemsLeft").html(tasks.length+" items left");
 		console.log("working");
 		$(this).closest("li").toggleClass("lineThrough");
 
-		// This keeps track of current tasks w/ lineThrough class applied
+		// Keeps track of current tasks w/ lineThrough class applied
 		var currentTasks = $(".taskList li").not(".lineThrough");
 		console.log(currentTasks);
-
 		$(".itemsLeft").html(currentTasks.length+" items left");
 	});
+
+
 
 
 	//Double-click to edit task
@@ -63,9 +59,11 @@ $(".itemsLeft").html(tasks.length+" items left");
 	    $(this).text("");
 	    $("<input type='text'>").appendTo(this).focus();
 
-	    // This keeps track of current tasks
+
+	    // Keeps track of current tasks
 	    $(".itemsLeft").html(tasks.length+" items left");
 	});
+
 	$(".taskList").on('focusout', 'li > input', function() {
 
 	    var $this = $(this);
@@ -77,18 +75,22 @@ $(".itemsLeft").html(tasks.length+" items left");
 		tasks.unshift(newTaskObj);
 		var myTasks = _.template($("#tasksTmpl").html(), tasks);
 			$(".taskList").html(myTasks);
+
 			
-        // This keeps track of current tasks
+        // Keeps track of current tasks
 		$(".itemsLeft").html(tasks.length+" items left");
 		
 	});
 
 
+
+
 	// Remove completed item
 	$("#clearComplete").on("click", function() {
-		console.log("hey I'm working");
+		console.log("bye bye task");
 		$(".lineThrough").closest("li").remove();
 	});
+
 
 
 
