@@ -9,7 +9,7 @@ $(".itemsLeft").html(tasks.length+" items left");
 
 
 
-
+	//Create new tasks
 	$("#newTaskForm").on("submit", function(e) {
 		e.preventDefault();
 		var taskItem = $(".newTaskItem").val();
@@ -35,8 +35,11 @@ $(".itemsLeft").html(tasks.length+" items left");
 
 	//Tooggle class lineThrough with this function. Event delegation.
 	$(".taskList").on("click", ".toggleTask", function() {
-		console.log("working");
+		var toggleIndex = $(this).closest("li").data("index");
+		console.log(toggleIndex);
+
 		$(this).closest("li").toggleClass("lineThrough");
+
 
 		// Keeps track of current tasks w/ lineThrough class applied
 		var currentTasks = $(".taskList li").not(".lineThrough");
@@ -85,12 +88,51 @@ $(".itemsLeft").html(tasks.length+" items left");
 
 
 
-	// Remove completed item
-	$("#clearComplete").on("click", function() {
-		console.log("bye bye task");
-		$(".lineThrough").closest("li").remove();
-	});
+	//Clear completed tasks
+	$("#clearComplete").on('click', function() {
+		var removeIndex = $(".lineThrough").closest("li").data("index");
+		console.log(removeIndex);
 
+
+	    tasks.splice(removeIndex, 1);
+	    
+	    var myTasks = _.template($("#tasksTmpl").html(), tasks);
+		$(".taskList").html(myTasks);
+
+	    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	//
+	var $complete = $(".taskList");
+
+
+	$("#complete").on("click", function() {
+		event.preventDefault();
+		if($complete.hasClass("lineThrough")){
+			return;
+		} else{
+			$complete.closest("li").addClass("hide");			
+
+			}
+
+
+	});
 
 
 
