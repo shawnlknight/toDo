@@ -40,9 +40,6 @@ $(".itemsLeft").html(tasks.length+" items left");
 
 		$(this).closest("li").toggleClass("lineThrough");
 
-			
-
-
 		// Keeps track of current tasks w/ lineThrough class applied
 		var currentTasks = $(".taskList li").not(".lineThrough");
 		console.log(currentTasks);
@@ -92,13 +89,19 @@ $(".itemsLeft").html(tasks.length+" items left");
 
 
 
-	//Clear completed tasks
-	$("#clearComplete").on('click', function() {
-		var removeIndex = $(".lineThrough").data("index");
+	//Clear all todos
+	$("#clearAll").on('click', function() {
+		var removeIndex = $(this).data("index");
 		console.log(removeIndex);
 		var deleted;
 
-	    tasks.splice(removeIndex, 1);
+		// if(removeIndex) {
+
+	    tasks.splice(removeIndex);
+	     // Keeps track of current tasks
+		$(".itemsLeft").html(tasks.length+" items left");
+
+	// };
 
 	    
 	    var myTasks = _.template($("#tasksTmpl").html(), tasks);
@@ -107,15 +110,25 @@ $(".itemsLeft").html(tasks.length+" items left");
 	    });
 
 
+	//Clear completed todos
+	$(".taskList").on("click", ".deleteTodo", function() {
+		var removeIndex = $(this).closest("li").data("index");
+		console.log(removeIndex);
+		var deleted;
+
+	    tasks.splice(removeIndex, 1);
+
+	    var myTasks = _.template($("#tasksTmpl").html(), tasks);
+		$(".taskList").html(myTasks);
+
+		 // Keeps track of current tasks
+		$(".itemsLeft").html(tasks.length+" items left");
+
+	    });
+	
 
 
- 
-
-
-
-
-
-	//
+	// Switch views of tasks
 	$("#active").click(function() {
       event.preventDefault();
 
@@ -129,13 +142,6 @@ $(".itemsLeft").html(tasks.length+" items left");
 		$(".lineThrough").closest("li").toggle();
 		$(".lineThrough").removeClass("hide");
 		});
-
-
-	
-
-
-
-
 
 
 

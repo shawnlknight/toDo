@@ -20,7 +20,7 @@
         <script type="template/html" id="tasksTmpl">
         <% _.each(tasks, function(tasks, index , list) { %>
 
-            <li class="tasksTitle" data-index="<%= index %>"><span class="glyphicon glyphicon-ok toggleTask"></span><%= tasks.title %></li>
+            <li class="tasksTitle" data-index="<%= index %>"><span class="glyphicon glyphicon-ok toggleTask"></span><%= tasks.title %>   <span class="glyphicon glyphicon-trash deleteTodo"></span></li>
         <% }); %>
         </script>
 
@@ -58,10 +58,9 @@
                 <div class="btn-group" id="postNav">
                   <button type="button" class="btn" id="all"><p>All</p></button>
                   <button type="button" class="btn" id="active"><p>Active</p></button>
-                  <button type="button" class="btn" id="complete"><p>Complete</p></button>
                 </div>
                 <div class="btn-group" id="clear">
-                  <button type="button" class="btn" id="clearComplete"><p>Clear Completed</p></button>
+                  <button type="button" class="btn" id="clearAll"><p>Clear All</p></button>
                 </div>
 
 
