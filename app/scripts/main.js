@@ -35,10 +35,12 @@ $(".itemsLeft").html(tasks.length+" items left");
 
 	//Tooggle class lineThrough with this function. Event delegation.
 	$(".taskList").on("click", ".toggleTask", function() {
-		var toggleIndex = $(this).closest("li").data("index");
+		var toggleIndex = $(tasks).closest("li").data("index");
 		console.log(toggleIndex);
 
 		$(this).closest("li").toggleClass("lineThrough");
+
+			
 
 
 		// Keeps track of current tasks w/ lineThrough class applied
@@ -46,6 +48,8 @@ $(".itemsLeft").html(tasks.length+" items left");
 		console.log(currentTasks);
 		$(".itemsLeft").html(currentTasks.length+" items left");
 	});
+
+	
 
 
 
@@ -90,17 +94,27 @@ $(".itemsLeft").html(tasks.length+" items left");
 
 	//Clear completed tasks
 	$("#clearComplete").on('click', function() {
-		var removeIndex = $(".lineThrough").closest("li").data("index");
+		var removeIndex = $(".lineThrough").data("index");
 		console.log(removeIndex);
-
+		var deleted;
 
 	    tasks.splice(removeIndex, 1);
+
 	    
 	    var myTasks = _.template($("#tasksTmpl").html(), tasks);
 		$(".taskList").html(myTasks);
 
 	    });
 
+
+
+
+ 
+
+
+
+
+		
 
 
 
