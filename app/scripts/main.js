@@ -114,39 +114,24 @@ $(".itemsLeft").html(tasks.length+" items left");
 
 
 
-		
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 	//
-	var $complete = $(".taskList");
+	$("#active").click(function() {
+      event.preventDefault();
+
+		$(".lineThrough").closest("li").toggle();
+		$(".lineThrough").addClass("hide");
+		});
+
+	$("#all").click(function() {
+      event.preventDefault();
+
+		$(".lineThrough").closest("li").toggle();
+		$(".lineThrough").removeClass("hide");
+		});
 
 
-	$("#complete").on("click", function() {
-		event.preventDefault();
-		if($complete.hasClass("lineThrough")){
-			return;
-		} else{
-			$complete.closest("li").addClass("hide");			
-
-			}
-
-
-	});
+	
 
 
 
