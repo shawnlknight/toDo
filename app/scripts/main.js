@@ -38,7 +38,7 @@ $(".itemsLeft").html(tasks.length+" items left");
 		var toggleIndex = $(tasks).closest("li").data("index");
 		console.log(toggleIndex);
 
-		$(this).closest("li").toggleClass("lineThrough");
+	    $(this).closest("li").toggleClass("lineThrough");
 
 		// Keeps track of current tasks w/ lineThrough class applied
 		var currentTasks = $(".taskList li").not(".lineThrough");
@@ -132,14 +132,12 @@ $(".itemsLeft").html(tasks.length+" items left");
 	$("#active").click(function() {
       event.preventDefault();
 
-		$(".lineThrough").closest("li").toggle();
 		$(".lineThrough").addClass("hide");
 		});
 
 	$("#all").click(function() {
       event.preventDefault();
 
-		$(".lineThrough").closest("li").toggle();
 		$(".lineThrough").removeClass("hide");
 		});
 
