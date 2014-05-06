@@ -98,7 +98,7 @@ $(".itemsLeft").html(tasks.length+" items left");
 		// if(removeIndex) {
 
 	    tasks.splice(removeIndex);
-	     // Keeps track of current tasks
+	            // Keeps track of current tasks
 		$(".itemsLeft").html(tasks.length+" items left");
 
 	// };
