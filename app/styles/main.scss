@@ -183,7 +183,18 @@ body {
     display: none;
 }
 
+.toggleTask {
+    margin-right: 15px;
+}
+
+
+
 .deleteTodo {
+    float: right;
+    margin-left: 30px;
+}
+
+.editTodo {
     float: right;
 }
 

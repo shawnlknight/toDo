@@ -1,3 +1,8 @@
+
+var Url = "http://tiy-fee-rest.herokuapp.com/collections/shawnTodo";
+
+
+
 $(document).ready(function() {
 	// DOM Items Here
 
@@ -19,15 +24,73 @@ $(".itemsLeft").html(tasks.length+" items left");
 			title: taskItem
 		};
 
-		tasks.push(newTaskObj);
-		var myTasks = _.template($("#tasksTmpl").html(), tasks);
-			$(".taskList").html(myTasks);
+		// tasks.push(newTaskObj);
+		// var myTasks = _.template($("#tasksTmpl").html(), tasks);
+		// 	$(".taskList").html(myTasks);
 
 		$(".newTaskItem").val("");
+
+		// posts todos to server
+		$.post(Url, newTaskObj);
+
+
 
 		// Keeps track of current tasks
 		$(".itemsLeft").html(tasks.length+" items left");
 	});
+
+	// gets data from server
+	$.ajax({
+	  url: 'http://tiy-fee-rest.herokuapp.com/collections/shawnTodo',
+	  type: 'GET',
+	  data: "data",
+	  error: function(data){
+	  	alert("you fail hard");
+	  },
+	  success: function(data){
+	  	alert(data);
+	  	var post = data;
+	  	var html = '';
+
+	  	for(var i=0, l=data.length; i<l; i++) {
+          var object = post[i];
+
+        html += '<div data-id=\"' + object._id + '\"> '+object.title+'</div>\n';
+        // html += '<div> "'+object._id+'"</div>\n';
+		}
+
+			// appends to DOM from server
+		  $(".taskList").html(html);
+		  console.log(html);
+	
+			
+
+	  
+		}
+	});
+
+	// $.ajax({
+	//   url: 'http://tiy-fee-rest.herokuapp.com/collections/shawnTodo',
+	//   type: 'DELETE',
+	//   data: "data",
+	//   error: function(data){
+	//   	alert("you fail hard");
+	//   },
+	//   success: function(data){
+	//   	alert(data);
+	//   	var post = data;
+	//   	var html = '';
+
+	//   	for(var i=0, l=data.length; i<l; i++) {
+ //          var object = post[i];
+
+ //        html += '<div data-id=\"' + object._id + '\"> '+object.title+'</div>\n';
+ //        // html += '<div> "'+object._id+'"</div>\n';
+	// 	}
+	//   }
+
+	  
+	// });
 
 
 
@@ -93,7 +156,6 @@ $(".itemsLeft").html(tasks.length+" items left");
 	$("#clearAll").on('click', function() {
 		var removeIndex = $(this).data("index");
 		console.log(removeIndex);
-		var deleted;
 
 		// if(removeIndex) {
 
@@ -114,7 +176,6 @@ $(".itemsLeft").html(tasks.length+" items left");
 	$(".taskList").on("click", ".deleteTodo", function() {
 		var removeIndex = $(this).closest("li").data("index");
 		console.log(removeIndex);
-		var deleted;
 
 	    tasks.splice(removeIndex, 1);
 
@@ -143,9 +204,8 @@ $(".itemsLeft").html(tasks.length+" items left");
 
 
 
-
-
 });
+
 
 
 

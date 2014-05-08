@@ -17,12 +17,20 @@
         <!-- build:js scripts/vendor/modernizr.js -->
         <script src="../bower_components/modernizr/modernizr.js"></script>
         <!-- endbuild -->
+
         <script type="template/html" id="tasksTmpl">
         <% _.each(tasks, function(tasks, index , list) { %>
 
             <li class="tasksTitle" data-index="<%= index %>"><span class="glyphicon glyphicon-ok toggleTask"></span><%= tasks.title %>   <span class="glyphicon glyphicon-trash deleteTodo"></span></li>
         <% }); %>
-        </script>
+        </script> 
+
+        <!--<script type="template/html" id="tasksTmpl">
+        <% _.each(tasks, function(todos, index , list) { %>
+
+            <li class="tasksTitle" data-index="<%= index %>"><span class="glyphicon glyphicon-ok toggleTask"></span><%= todos.title %>   <span class="glyphicon glyphicon-trash deleteTodo"></span></li>
+        <% }); %>
+        </script> -->
 
     </head>
     <body>
@@ -43,11 +51,15 @@
                     <input type="text" class="form-control newTaskItem" id="newTaskItem" placeholder="What needs to be done?">
                   </div>
                 
-                <ul class="taskList">   
+                <ul class="taskList">  
                     <!--todo tasks go here-->
+
+
                 </ul>
 
                 </form>
+
+
             </div>
             
             <div class="row" id="navRow">
@@ -68,7 +80,21 @@
 
 
             <div class="footer">
-                <p><span class=""></span>Double-click to edit todo</p>
+                <p><span class=""></span>Double-click todo to edit</p>
+            </div>
+
+            <!-- begin edit modal -->
+            <div class="modal fade" id="editTodoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">Edit Todo</h4>
+                  </div>
+                  <form id="editTodoForm" action="">
+                 <!-- template renders for this -->
+                  </form>
+                </div>
+              </div>
             </div>
 
         </div>
@@ -108,8 +134,11 @@
 
         <!-- build:js({app,.tmp}) scripts/main.js -->
         
+        <script src="scripts/templates.js"></script>
         <script src="scripts/data.js"></script>
-        <script src="scripts/main.js"></script>
+        <script src="scripts/prod.js"></script>
+        <!--<script src="scripts/main.js"></script>-->
+
         <!-- endbuild -->
 </body>
 </html>
