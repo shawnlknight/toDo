@@ -19,6 +19,7 @@ var todoApp = {
 	initEvents: function() {
 		// Keeps track of current tasks
 		$(".itemsLeft").html(tasks.length+" items left");
+
 		// add todo
 		$("#newTaskForm").on("submit", this.addTodo);
 
@@ -39,8 +40,14 @@ var todoApp = {
 			todoApp.updateTodo(todoId);
 		});
 
-		// Delete todo
-		$(".taskList").on("click", ".deleteTodo", this.removeTodo)
+		// Delete individual todos
+		$(".taskList").on("click", ".deleteTodo", this.removeTodo);
+
+		// Show Active Todos
+		$("#active").on("click", this.showActive);
+
+		// Show All Todos
+		$("#all").on("click", this.showAll);
 
 	},
 
@@ -63,6 +70,7 @@ var todoApp = {
 		  	
 		  	var tasks = window.tasks = data;
 		  	todoApp.render($(".taskList"), Templates.todo, tasks);
+
 
 		  	// Counts number of todos
 		  	$(".itemsLeft").html(tasks.length+" items left");
@@ -92,12 +100,13 @@ var todoApp = {
 	        $(".newTaskItem").val("");
 	        todoApp.renderTodos();  
 
+
 	      }
 	    });
 	 },
 
 	removeTodo: function() {
-	    var $thisTodo = $(this).closest("li")
+	    var $thisTodo = $(this).closest("li");
 	    var todoId = $thisTodo.data("tasksid");
 	    $.ajax({
 	      url: 'http://tiy-fee-rest.herokuapp.com/collections/shawnTodo/' + todoId,
@@ -114,28 +123,36 @@ var todoApp = {
 	  },
 
 	completeTodo: function() {
-		console.log("line through");
-			var $thisTodo = $(this).closest("li")
-	    	var todoId = $thisTodo.data("tasksid");
-	        var completeTodo = {
-	              title: $(this).closest("li").text(),
-	              completed: true
-	        };
-	    $.ajax({
-	      url: "http://tiy-fee-rest.herokuapp.com/collections/shawnTodo/" + todoId,
-	      type: "PUT",
-	      data: completeTodo, 
-	      error: function(jqXHR, status, error) {
-	        alert("couldn't complete todo: " + error);
-	      },
-	      success: function(data, dataType, jqXHR) {
-	        console.log("completed todo!");
-	        // $(this).closest("li").toggleClass("lineThrough");
+		// console.log("line through");
+		// 	var $thisTodo = $(".tasksTitle").closest("li")
+	 //    	var todoId = $thisTodo.data("tasksid");
+	 //        var completeTodo = {
+	 //              title: $(this).closest("li").text(),
+	 //              completed: true
+	 //        };
+	 //    $.ajax({
+	 //      url: "http://tiy-fee-rest.herokuapp.com/collections/shawnTodo/" + todoId,
+	 //      type: "PUT",
+	 //      data: completeTodo, 
+	 //      error: function(jqXHR, status, error) {
+	 //        alert("couldn't complete todo: " + error);
+	 //      },
+	 //      success: function(data, dataType, jqXHR) {
+	 //        console.log("completed todo!");
+	 //        $(this).closest("li").toggleClass("lineThrough");
 	   
-	        todoApp.renderTodos();  
+	 //        todoApp.renderTodos();  
 
-	      }
-	    });
+	 //      }
+	 //    });
+
+		$(this).closest("li").toggleClass("lineThrough");
+
+		// Keeps track of current tasks w/ lineThrough class applied
+		var currentTasks = $(".taskList li").not(".lineThrough");
+		console.log(currentTasks);
+		$(".itemsLeft").html(currentTasks.length+" items left");
+
 	  },
 
 	updateTodo: function(todoId) {
@@ -174,6 +191,17 @@ var todoApp = {
 	  			todoApp.render($("#editTodoForm"),Templates.update, tasks);
 	  		}
 	  	});
+	  },
+
+	  showActive: function() {
+
+	  	$(".lineThrough").addClass("hide");
+
+	  },
+
+	  showAll: function() {
+
+	  	$(".lineThrough").removeClass("hide");
 	  }
 
 };

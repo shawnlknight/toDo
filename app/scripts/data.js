@@ -1,3 +1,1 @@
-var tasks = [
-
-];
+var tasks = [];

@@ -104,7 +104,7 @@ body {
     overflow-y:scroll;
     margin-bottom: 1px;
     padding-bottom: 1px;
-    border-top: 20px solid;
+    border-top: 20px solid #83726a;
     background: url(/images/paper3.jpg);
 }
 
@@ -128,7 +128,6 @@ body {
 }
 
 #navRow {
-    border-radius: 10%;
     position: relative;
     margin-left: 0.5%;
     background: #c1c1c1;
@@ -163,7 +162,7 @@ body {
 
 .lineThrough {
     text-decoration: line-through;
-    color: red;
+    color: #d32336;
 }
 
 #newTaskItem {
@@ -187,8 +186,6 @@ body {
     margin-right: 15px;
 }
 
-
-
 .deleteTodo {
     float: right;
     margin-left: 30px;
@@ -197,6 +194,8 @@ body {
 .editTodo {
     float: right;
 }
+
+
 
 
 

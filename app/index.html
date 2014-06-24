@@ -1,144 +1,107 @@
 <!doctype html>
 <html class="no-js">
-    <head>
-        <meta charset="utf-8">
-        <title>toDo</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width">
-        <link rel="shortcut icon" href="/favicon.ico">
-        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-        <!-- build:css styles/vendor.css -->
-        <!-- bower:css -->
-        <!-- endbower -->
-        <!-- endbuild -->
-        <!-- build:css(.tmp) styles/main.css -->
-        <link rel="stylesheet" href="styles/main.css">
-        <!-- endbuild -->
-        <!-- build:js scripts/vendor/modernizr.js -->
-        <script src="../bower_components/modernizr/modernizr.js"></script>
-        <!-- endbuild -->
+<head>
+    <meta charset="utf-8">
+    <title>toDo</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css styles/vendor.css -->
+    <!-- bower:css -->
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+    <!-- build:js scripts/vendor/modernizr.js -->
+    <script src="../bower_components/modernizr/modernizr.js"></script>
+    <!-- endbuild -->
+</head>
 
-        <script type="template/html" id="tasksTmpl">
-        <% _.each(tasks, function(tasks, index , list) { %>
-
-            <li class="tasksTitle" data-index="<%= index %>"><span class="glyphicon glyphicon-ok toggleTask"></span><%= tasks.title %>   <span class="glyphicon glyphicon-trash deleteTodo"></span></li>
-        <% }); %>
-        </script> 
-
-        <!--<script type="template/html" id="tasksTmpl">
-        <% _.each(tasks, function(todos, index , list) { %>
-
-            <li class="tasksTitle" data-index="<%= index %>"><span class="glyphicon glyphicon-ok toggleTask"></span><%= todos.title %>   <span class="glyphicon glyphicon-trash deleteTodo"></span></li>
-        <% }); %>
-        </script> -->
-
-    </head>
-    <body>
-        <!--[if lt IE 10]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-
-
-        <div class="container">
-
-            <h1 class="todoTitle">todos</h1>
-
-            <div class="jumbotron">
-
-                <!--form for new todo -->
-                <form class="navbar-form navbar-left" id="newTaskForm" role="">
-                  <div class="form-group">
-                    <input type="text" class="form-control newTaskItem" id="newTaskItem" placeholder="What needs to be done?">
-                  </div>
-                
+<body>
+    <div class="container">
+        <h1 class="todoTitle">todos</h1>
+        <div class="jumbotron">
+            <!--form for new todo -->
+            <form class="navbar-form navbar-left" id="newTaskForm" role="">
+              <div class="form-group">
+                <input type="text" class="form-control newTaskItem" id="newTaskItem" placeholder="What needs to be done?">
+              </div>
                 <ul class="taskList">  
                     <!--todo tasks go here-->
-
-
                 </ul>
-
-                </form>
-
-
-            </div>
-            
-            <div class="row" id="navRow">
-
-                <div class="btn-group">
-                  <button type="button" class="btn"><p class="itemsLeft"></p></button>
-                </div>
-                <div class="btn-group" id="postNav">
-                  <button type="button" class="btn" id="all"><p>All</p></button>
-                  <button type="button" class="btn" id="active"><p>Active</p></button>
-                </div>
-                <div class="btn-group" id="clear">
-                  <button type="button" class="btn" id="clearAll"><p>Clear All</p></button>
-                </div>
-
-
-            </div>
-
-
-            <div class="footer">
-                <p><span class=""></span>Double-click todo to edit</p>
-            </div>
-
-            <!-- begin edit modal -->
-            <div class="modal fade" id="editTodoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel">Edit Todo</h4>
-                  </div>
-                  <form id="editTodoForm" action="">
-                 <!-- template renders for this -->
-                  </form>
-                </div>
-              </div>
-            </div>
-
+            </form>
         </div>
+        <div class="row" id="navRow">
+            <div class="btn-group">
+              <button type="button" class="btn"><p class="itemsLeft"></p></button>
+            </div>
+            <div class="btn-group" id="postNav">
+              <button type="button" class="btn" id="all"><p>All</p></button>
+              <button type="button" class="btn" id="active"><p>Active</p></button>
+            </div>
+            <!-- <div class="btn-group" id="clear">
+              <button type="button" class="btn" id="clearAll"><p>Clear All</p></button> -->
+        </div>
+        <div class="footer">
+            <p><span class=""></span>Double-click todo to edit</p>
+        </div>
+            <!-- begin edit modal -->
+        <div class="modal fade" id="editTodoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">Edit Todo</h4>
+              </div>
+              <form id="editTodoForm" action="">
+             <!-- template renders for this -->
+              </form>
+            </div>
+          </div>
+        </div>
+    </div>
 
 
-        <!-- build:js scripts/vendor.js -->
-        <!-- bower:js -->
-        <script src="../bower_components/jquery/dist/jquery.js"></script>
-        <script src="../bower_components/underscore/underscore.js"></script>
-        <!-- endbower -->
-        <!-- endbuild -->
+    <!-- build:js scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="../bower_components/jquery/dist/jquery.js"></script>
+    <script src="../bower_components/underscore/underscore.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
 
-        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-        <script>
-            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-            e.src='//www.google-analytics.com/analytics.js';
-            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-            ga('create','UA-XXXXX-X');ga('send','pageview');
-        </script>
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <script>
+        (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+        function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+        e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+        e.src='//www.google-analytics.com/analytics.js';
+        r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+        ga('create','UA-XXXXX-X');ga('send','pageview');
+    </script>
 
-        <!-- build:js scripts/plugins.js -->
-        <script src="../bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/affix.js"></script>
-        <script src="../bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/alert.js"></script>
-        <script src="../bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/dropdown.js"></script>
-        <script src="../bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/tooltip.js"></script>
-        <script src="../bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/modal.js"></script>
-        <script src="../bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/transition.js"></script>
-        <script src="../bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/button.js"></script>
-        <script src="../bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/popover.js"></script>
-        <script src="../bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/carousel.js"></script>
-        <script src="../bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/scrollspy.js"></script>
-        <script src="../bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/collapse.js"></script>
-        <script src="../bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/tab.js"></script>
-        <!-- endbuild -->
+    <!-- build:js scripts/plugins.js -->
+    <script src="../bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/affix.js"></script>
+    <script src="../bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/alert.js"></script>
+    <script src="../bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/dropdown.js"></script>
+    <script src="../bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/tooltip.js"></script>
+    <script src="../bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/modal.js"></script>
+    <script src="../bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/transition.js"></script>
+    <script src="../bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/button.js"></script>
+    <script src="../bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/popover.js"></script>
+    <script src="../bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/carousel.js"></script>
+    <script src="../bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/scrollspy.js"></script>
+    <script src="../bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/collapse.js"></script>
+    <script src="../bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/tab.js"></script>
+    <!-- endbuild -->
 
-        <!-- build:js({app,.tmp}) scripts/main.js -->
-        
-        <script src="scripts/templates.js"></script>
-        <script src="scripts/data.js"></script>
-        <script src="scripts/prod.js"></script>
-        <!--<script src="scripts/main.js"></script>-->
+    <!-- build:js({app,.tmp}) scripts/main.js -->
+    
+    <script src="scripts/templates.js"></script>
+    <script src="scripts/data.js"></script>
+    <script src="scripts/prod.js"></script>
+    <!--<script src="scripts/main.js"></script>-->
 
-        <!-- endbuild -->
+    <!-- endbuild -->
 </body>
 </html>
