@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	// DOM Items Here
+
 	todoApp.init();
 
 });
@@ -27,7 +27,7 @@ var todoApp = {
 		$(".taskList").on("click", ".toggleTask", this.completeTodo);
 
 		// edit todo
-		$(".taskList").on('dblclick', 'li', function(e) {
+		$(".taskList").on('click', '.updateTodo', function(e) {
 			var todoId = $(this).closest("li").data("tasksid");
 			console.log("you are editing");
 			todoApp.renderFormDetail(todoId);

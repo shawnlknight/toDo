@@ -3,7 +3,9 @@ Templates = {};
 Templates.todo = [
   "<% _.each(tasks, function(tasks, index , list) { %>",
     "<li data-tasksId=\"<%= tasks._id %>\" class=\"tasksTitle <%= tasks.completed = false ? 'lineThrough' : 'something' %>\" data-index=\"<%= index %>\">",
-    "<span class=\"glyphicon glyphicon-ok toggleTask\"></span><%= tasks.title %>",  
+    "<span class=\"glyphicon glyphicon-ok toggleTask\"></span><%= tasks.title %>",
+    "<br>", 
+    "<span class=\"glyphicon glyphicon-pencil updateTodo\"></span>", 
     "<span class=\"glyphicon glyphicon-trash deleteTodo\"></span></li>",
     "<% }); %>"
 

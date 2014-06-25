@@ -4,104 +4,30 @@ $icon-font-path: "/bower_components/bootstrap-sass-official/vendor/assets/fonts/
 @import "../../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap.scss";
 // endbower
 
-.browsehappy {
-    margin: 0.2em 0;
-    background: #ccc;
-    color: #000;
-    padding: 0.2em 0;
-}
-
-/* Space out content a bit */
 body {
     padding-top: 20px;
     padding-bottom: 20px;
+    background: #e3e3e3;
 }
 
-/* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
-.marketing,
-.footer {
-    padding-left: 15px;
-    padding-right: 15px;
-}
-
-/* Custom page header */
-.header {
-    border-bottom: 1px solid #e5e5e5;
-
-    /* Make the masthead heading the same height as the navigation */
-    h3 {
-        margin-top: 0;
-        margin-bottom: 0;
-        line-height: 40px;
-        padding-bottom: 19px;
-    }
-}
-
-/* Custom page footer */
 .footer {
     padding-top: 19px;
+    padding-left: 15px;
+    padding-right: 15px;
     color: #777;
     border-top: 1px solid #e5e5e5;
+    text-align: center;
 }
 
 .container-narrow > hr {
     margin: 30px 0;
 }
 
-/* Main marketing message and sign up button */
-.jumbotron {
-    text-align: center;
-    border-bottom: 1px solid #e5e5e5;
-    .btn {
-        padding: 14px 24px;
-        cursor: pointer;
-    }
-}
-
-/* Supporting marketing content */
-.marketing {
-    margin: 40px 0;
-    p + h4 {
-        margin-top: 28px;
-    }
-}
-
-/* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
-    .container {
-        max-width: 600px;
-    }
-
-    /* Remove the padding we set earlier */
-    .header,
-    .marketing,
-    .footer {
-        padding-left: 0;
-        padding-right: 0;
-    }
-
-    /* Space out the masthead */
-    .header {
-        margin-bottom: 30px;
-    }
-
-    /* Remove the bottom border on the jumbotron for visual effect */
-    .jumbotron {
-        border-bottom: 0;
-        padding: 0;
-    }
-}
-
-body {
-    background: #e3e3e3;
-}
-
 .jumbotron {
     text-align: left;
     min-height: 350px;
     max-height: 350px;
-    overflow-y:scroll;
+    overflow-y: scroll;
     margin-bottom: 1px;
     padding-bottom: 1px;
     border-top: 20px solid #83726a;
@@ -114,7 +40,6 @@ body {
     float: left;
     list-style-type: none;
     font-size: 24px;
-    cursor: pointer;
 }
 
 #centerNav {
@@ -146,10 +71,6 @@ body {
 
 #clear {
     float: right;
-}
-
-.footer {
-    text-align: center;
 }
 
 .glyphicon {
@@ -186,13 +107,59 @@ body {
     margin-right: 15px;
 }
 
+.updateTodo {
+    margin-left: 70%;
+}
+
 .deleteTodo {
     float: right;
-    margin-left: 30px;
 }
 
 .editTodo {
     float: right;
+}
+
+@media screen and (min-width: 768px) {
+    .container {
+        max-width: 600px;
+    }
+    .footer {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    .jumbotron {
+        border-bottom: 0;
+        padding: 0;
+    }
+}
+
+@media screen and (max-width: 960px) {
+    .container {
+        max-width: 600px;
+    }
+    .jumbotron {
+        padding: 0;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .container {
+        max-width: 400px;
+    }
+    .taskList {
+        font-size: 18px;
+    }
+    .updateTodo {
+        margin-left: 40%;
+        margin-right: 0;
+    }
+    .deleteTodo {
+        float: none;
+        margin-left: 10%;
+    }
+    #navRow {
+        max-width: 370px;
+    }
 }
 
 
